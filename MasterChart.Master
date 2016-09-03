@@ -1,0 +1,293 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterChart.master.cs"
+    Inherits="WebSolutionChart.MasterChart" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title> Dash Board Application</title>
+      <link  rel="Shortcut Icon" href="Images/Chart_ShortCutIcon.png?str=vil" />
+    <link href="Styles/Site2.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/style.css" rel="stylesheet" />
+    <link href="Styles/style1.css" rel="stylesheet" />
+    <link href="Styles/bootstrap.min.css" rel="stylesheet" />
+  
+    <style type="text/css">
+        ._css3m
+        {
+            display: none;
+        }
+        
+        li
+        {
+            cursor: auto;
+        }
+        
+        a
+        {
+            cursor: auto !important;
+            color: white !important;
+        }
+        
+        .form-control
+        {
+            width: 200px;
+            height: 30px;
+        }
+        
+        .Space label
+        {
+            margin-left: 5px;
+            margin-right: 10px;
+            font-weight: 100;
+        }
+        
+        th
+        {
+            text-align: center;
+            height: 30px;
+            padding: 7px;
+        }
+        tr
+        {
+            height: 30px;
+        }
+        .btn
+        {
+            background-color: #1393A9;
+            color: white;
+        }
+        ul#css3menu1 > li
+        {
+            height: 30px;
+        }
+        .command
+        {
+            padding: 1px 5px 1px 5px;
+            background-color: #1393A9;
+            color: white;
+        }
+        
+        .DwnldLink
+        {
+            color: #1393A9 !important;
+            border-color: #1393A9;
+        }
+        h2
+        {
+            font-size: 27px;
+        }
+        .modal
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 99;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            -moz-opacity: 0.8;
+            min-height: 100%;
+            width: 100%;
+        }
+        .loading
+        {
+            font-family: Arial;
+            font-size: 10pt;
+            border: 5px solid #67CFF5;
+            width: 200px;
+            height: 100px;
+            display: none;
+            position: fixed;
+            background-color: White;
+            z-index: 999;
+        }
+    </style>
+    <%--  <style type="text/css">
+        .dispinline h1, div,img
+        {
+            display: inline;
+        }
+        
+        .dispinline 
+        {
+
+            margin-left:400px;
+            display: inline;
+        }
+    </style>--%>
+    <style type="text/css">
+      .leftPan
+      {
+         
+      }
+      h1
+      {
+              margin: 0.2em 0 !important;
+      }
+          body
+        {
+            padding-top: 0px !important;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <%--  <div class="dispinline" style="">
+            <div style="">
+                <h1>
+                    Dash Board
+                </h1>
+            </div>
+            <div  style="float:right;padding:10px;">
+                <img src="Images/ispl_logo.PNG" />
+            </div>
+        </div>--%>
+        <div style="height: 60px; background-color: #6B696B">
+            <img src="Images/CampusIndia_logo.png" />
+            <h1 style="color: white; font-size: xx-large; margin-right: 480px !important;  font-style: italic;
+                margin-top: 5px; float:right;text-align:center;">
+                Dash Board
+            </h1>
+            
+        </div>
+         <div class="leftPan">
+                <div class="menu_templ" style="background-color: #d2d2d2; margin: 0px 0px 0px 0px;
+                    padding: 0px;">
+                    <div style="background-color: #1393A9;">
+                        <ul id="css3menu1" class="topmenu">
+                          <li class="topmenu" style="margin-right: 10px"><a href="/ChartDegreeWise.aspx"
+                                title="Convocation" style="height: 25px; line-height: 10px;"><i class=""
+                            style="margin-right: 7px"></i>Dashboard</a> </li>
+                            <li class="topmenu"><a href="/Home.aspx" title="Admission" style="height: 25px;
+                                line-height: 10px;"><i class="" style="margin-right: 7px"></i>Admission</a>
+                                <ul>
+                                    <li><a href="/WebSolutionChart/ChartDegreeWise.aspx" title="Bar & Pie Chart"><span><i class=""
+                                        style="margin-right: 7px"></i>Bar & Pie Chart</span></a></li>
+                                    <li><a href="/WebSolutionChart/StackedColummChart.aspx" title="Stacked Column Chart"><span><i class=""
+                                        style="margin-right: 7px"></i>Stacked Column Chart</span></a></li>
+                                    <li><a href="/WebSolutionChart/TotalStudentLineChart.aspx" title="Yearwise Admission Line Chart"><span><i class=""
+                                        style="margin-right: 7px"></i>Yearwise Admission Line Chart</span></a></li>
+                              
+                                 <%--   <li><a href="#" title="Users"><span><i class="" style="margin-right: 7px"></i>
+                                        Users</span></a></li>--%>
+                                </ul>
+                            </li>
+                              <li class="topmenu"><a href="#" title="Fees" style="height: 25px;
+                                line-height: 10px;"><i class="" style="margin-right: 7px"></i>Fees</a>
+                                <ul>
+                                     <li><a href="/WebSolutionChart/DailyCollectionBarChart.aspx" title="Total Admission Fees"><span><i class=""
+                                        style="margin-right: 7px"></i>Total Admission Fees</span></a></li>
+                                 <%--   <li><a href="#" title="Users"><span><i class="" style="margin-right: 7px"></i>
+                                        Users</span></a></li>--%>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <%--  <div class="leftPan">
+        <div class="menu_templ" style="background-color: #d2d2d2; margin: 0px 0px 0px 0px;
+            padding: 0px;">
+            <div style="background-color: #1393A9; ">
+                <ul id="css3menu1" class="topmenu">
+                    <li class="topmenu"><a href="/CampusIndiaUtilities/Home.aspx" title="Home" style="height: 25px;
+                        line-height: 10px;"><i class="fa fa-home fa-lg" style="margin-right: 7px"></i>Admission</a>
+                        <ul>
+                            <li><a href="/ChartDegreeWise.aspx" title="Masters"><span><i class="fa fa-user-plus"
+                                style="margin-right: 7px"></i>Bar & Pie Chart</span></a></li>
+                            <li><a href="/CampusIndiaUtilities/Pages/frmListmst.aspx" title="List"><span><i class="fa fa-eye"
+                                style="margin-right: 7px"></i>Staked Column Chart</span></a></li>
+                            <li><a href="#" title="Users"><span><i class="fa fa-eye"
+                                style="margin-right: 7px"></i>Users</span></a></li>
+                        </ul>
+                    </li>
+                <li class="topmenu"><a href="#" title="Agents" style="height: 25px; line-height: 10px;">
+                        <span><i class="fa fa-users" style="margin-right: 7px"></i>Exam </span></a>
+                        <ul>
+                            <li><a href="/CampusIndiaUtilities/Pages/frmStudentwiseExamDetail.aspx" title="Student Wise">
+                                <span><i class="fa fa-user-plus" style="margin-right: 7px"></i>Student wise</span></a></li>
+                            <li><a href="#" title="Architect"><span><i class="fa fa-eye" style="margin-right: 7px">
+                            </i>Architect</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="topmenu"><a href="#" title="Admission" style="height: 25px; line-height: 10px;">
+                        <span><i class="fa fa-users" style="margin-right: 7px"></i>Admission</span></a>
+                         <ul>
+                                <li><a href="AddClient.aspx" title="Add Client">
+                                    <i class="fa fa-user-plus" style="margin-right: 7px"></i>Add Client</a></li>
+                                <li><a href="ViewClients.aspx" title="View Clients">
+                                    <i class="fa fa-eye" style="margin-right: 7px"></i>View Clients</a></li>
+                            </ul>
+                    </li>
+                    <li class="topmenu" style="margin-right: 10px"><a href="#" title="Fees" style="height: 25px;
+                        line-height: 10px;"><i class="fa fa-file-text" style="margin-right: 7px"></i>Fees</a>
+                        <ul>
+                            <li><a href="/CampusIndiaUtilities/Pages/frmStudentFeesDetail.aspx" title="Fees"><i
+                                class="fa fa-user-plus" style="margin-right: 7px"></i>Fees</a> </li>
+                                 <li>
+                                    <a href="/CampusIndiaUtilities/Pages/frmBankServices.aspx" title="Bank Services">
+                                        <i class="fa fa-eye" style="margin-right: 7px"></i>Bank Services</a>
+                                </li>
+                        </ul>
+                    </li>
+                    <li class="topmenu" style="margin-right: 10px"><a href="#" title="Hostel" style="height: 25px;
+                        line-height: 10px;"><i class="fa fa-cubes" style="margin-right: 7px"></i>Hostel</a>
+                        <ul>
+                                <li>
+                                    <a href="AddProduct.aspx" title="Add Product">
+                                        <i class="fa fa-user-plus" style="margin-right: 7px"></i>Add Product</a>
+                                </li>
+                                <li>
+                                    <a href="ViewProducts.aspx" title="View Products">
+                                        <i class="fa fa-eye" style="margin-right: 7px"></i>View Products</a>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="topmenu" style="margin-right: 10px"><a href="#" title="Transport" style="height: 25px;
+                        line-height: 10px;"><i class="fa fa-th" style="margin-right: 7px"></i>Transport</a>
+                       <ul>
+                                <li>
+                                    <a href="AddSubProduct.aspx" title="Add Sub-Product">
+                                        <i class="fa fa-user-plus" style="margin-right: 7px"></i>Add Sub-Product</a>
+                                </li>
+                                <li>
+                                    <a href="ViewSubProducts.aspx" title="View Sub-Products">
+                                        <i class="fa fa-eye" style="margin-right: 7px"></i>View Sub-Products</a>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="topmenu" style="margin-right: 10px"><a href="/CampusIndiaUtilities/Pages/frmConvocation.aspx"
+                        title="Convocation" style="height: 25px; line-height: 10px;"><i class="fa fa-building"
+                            style="margin-right: 7px"></i>Convocation</a> </li>
+                    <li class="topmenu" style="margin-right: 10px"><a href="#" title="Others" style="height: 25px;
+                        line-height: 10px;"><i class="fa fa-th" style="margin-right: 7px"></i>Others</a>
+                        <ul>
+                            <li><a href="/CampusIndiaUtilities/Pages/EncryptDecrypt.aspx" title="Encrypt Decrypt">
+                                <i class="fa fa-user-plus" style="margin-right: 7px"></i>Encrypt Decrypt</a>
+                            </li>
+                            <li><a href="/CampusIndiaUtilities/Pages/frmSQLQuery.aspx" title="SQL Query"><i class="fa fa-user-plus"
+                                style="margin-right: 7px"></i>SQL Query</a> </li>
+                                <li>
+                                    <a href="/CampusIndiaUtilities/Pages/frmErrorLog.aspx" title="Error Log">
+                                        <i class="fa fa-eye" style="margin-right: 7px"></i>Error Log</a>
+                                </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- End css3menu.com BODY section -->
+            <div class="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>--%>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
